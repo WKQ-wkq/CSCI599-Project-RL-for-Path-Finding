@@ -59,7 +59,7 @@ class TemporalDifferenceLearningAgent(Agent):
         return epsilon_greedy(Q_values, None, epsilon=self.epsilon)
     
     def decay_exploration(self):
-        self.epsilon = max(self.epsilon-self.epsilon_decay, 0.01)
+        self.epsilon = max(self.epsilon-self.epsilon_decay, self.epsilon_decay)
 
 """
  Autonomous agent using on-policy SARSA.

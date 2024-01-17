@@ -26,4 +26,4 @@ def UCB1(Q_values, action_counts, exploration_constant=1):
             exploration_term *= np.sqrt(np.log(N_total)/N)
             UCB1_values.append(Q + exploration_term)
     return np.argmax(UCB1_values)
-    
+

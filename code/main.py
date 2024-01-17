@@ -32,9 +32,9 @@ params["epsilon_decay"] = 0.001
 params["alpha"] = 0.1
 params["env"] = env
 
-agent = a.RandomAgent(params)
+#agent = a.RandomAgent(params)
 #agent = a.SARSALearner(params)
-#agent = a.QLearner(params)
+agent = a.QLearner(params)
 training_episodes = 200
 returns = [episode(env, agent, i) for i in range(training_episodes)]
 
