@@ -42,7 +42,7 @@ Test results is saved in the folder `results/test_{model_file_name}`.
 
 My models are saved in the file `results/`. To help reproduce the results, there is some information about the models:
 
-| model file         | map  | bias | $\epsilon\_dacay$ | N | TD algor. | training episodes | avg test returns |
+| model file         | map  | bias | $\epsilon \_dacay$ | N | TD algor. | training episodes | avg test returns |
 | ------------------ | ---------------- | -------------- | -------------- | -------------- | -------------- | -------------- | -------------- |
 |  hard_0_sarsa.pkl  |     hard_0         |      0.005       | 0.0001 | 200 | SARSA |1000 |9.57|
 |   hard_0_qlearning.pkl |     hard_0         |      0.005       | 0.0001 | 200 | QLearning |1000 |9.36|
