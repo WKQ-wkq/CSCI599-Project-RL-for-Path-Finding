@@ -1,6 +1,7 @@
 import random
 import numpy as np
 from multi_armed_bandits import *
+import pickle
 
 """
  Base class of an autonomously acting and learning agent.
@@ -47,6 +48,9 @@ class TemporalDifferenceLearningAgent(Agent):
         self.alpha = params["alpha"]
         self.epsilon_decay = params["epsilon_decay"]
         self.epsilon = 1.0
+
+        ## The bias value of the TD-based agent
+        self.bias = params["bias"]
         
     def Q(self, state):
         state = np.array2string(state)
@@ -61,6 +65,11 @@ class TemporalDifferenceLearningAgent(Agent):
     def decay_exploration(self):
         self.epsilon = max(self.epsilon-self.epsilon_decay, self.epsilon_decay)
 
+    ## Save our trained model
+    def save_model(self, filename):
+        with open(filename, 'wb') as f:
+            pickle.dump(self, f)
+
 """
  Autonomous agent using on-policy SARSA.
 """
@@ -69,7 +78,10 @@ class SARSALearner(TemporalDifferenceLearningAgent):
     def update(self, state, action, reward, next_state, terminated, truncated):
         self.decay_exploration()
         Q_old = self.Q(state)[action]
-        TD_target = reward
+
+        ## Add the bias value to get the new TD target in our solution.
+        TD_target = reward-self.bias
+
         if not terminated:
             next_action = self.policy(next_state)
             Q_next = self.Q(next_state)[next_action]
@@ -85,7 +97,10 @@ class QLearner(TemporalDifferenceLearningAgent):
     def update(self, state, action, reward, next_state, terminated, truncated):
         self.decay_exploration()
         Q_old = self.Q(state)[action]
-        TD_target = reward
+
+        ## Add the bias value to get the new TD target in our solution.
+        TD_target = reward-self.bias
+
         if not terminated:
             Q_next = max(self.Q(next_state))
             TD_target += self.gamma*Q_next
