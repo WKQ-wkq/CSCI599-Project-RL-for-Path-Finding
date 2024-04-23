@@ -59,7 +59,7 @@ python main.py hard_1 qlearning 10 hard_1_qlearning.pkl
 ```
 
 ## Hardware and random seed
-I use MacBook Pro to conduct the  experiment. The CPU is M1 Pro. The memory is 16GB. The OS is macOS Monterey v12.5. If your device can run the original repository, then the device is suitable to run my code.
+The CPU is M1 Pro. The memory is 16GB. The OS is macOS Monterey v12.5. If your device can run the original repository, then the device is suitable to run my code.
 
 Compared to the original code, my solution doesn't have a new random seed.
 
