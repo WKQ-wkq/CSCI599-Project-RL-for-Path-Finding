@@ -7,6 +7,7 @@ This repository is my solution of the final project. This documentation is an in
 To install requirements:
 
 ```setup
+cd code
 pip install -r requirements.txt
 ```
 
@@ -14,7 +15,7 @@ The requirements is the same as the original repo.
 
 ## Training
 
-To train models, run this command:
+To train models, here is a command example:
 
 ```train
 cd code
@@ -28,7 +29,7 @@ Training data will be saved in the folder `results/bias_{bias}_epsilon_decay_{ep
 
 ## Test
 
-To test a model, run:
+To test a model, here is a command example:
 
 ```test
 python main.py hard_0 sarsa 10 hard_0_sarsa.pkl

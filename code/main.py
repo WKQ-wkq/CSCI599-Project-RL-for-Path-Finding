@@ -7,7 +7,7 @@ import csv
 import pickle
 
 ## Hypeparameters setting of our solution
-bias = 0
+bias = 0.005
 epsilon_decay = 0.0001
 N = 200
 
